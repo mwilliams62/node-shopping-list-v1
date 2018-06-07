@@ -10,6 +10,8 @@ const bodyParser = require('body-parser');
 // interact with in our GET endpoint
 const {ShoppingList} = require('./models');
 
+const {Recipes} = require('./models');
+
 const jsonParser = bodyParser.json();
 const app = express();
 
@@ -24,6 +26,8 @@ app.use(morgan('common'));
 ShoppingList.create('beans', 2);
 ShoppingList.create('tomatoes', 3);
 ShoppingList.create('peppers', 4);
+
+Recipes.create('chocolate milk', ['cocoa', 'milk', 'sugar']);
 
 // when the root of this route is called with GET, return
 // all current ShoppingList items by calling `ShoppingList.get()`
